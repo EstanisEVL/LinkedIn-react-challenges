@@ -1,5 +1,8 @@
 import Color from './Color'
 
+/* Build a color renderer that will display color swatches on a user interface. */
+// Update the ColorRenderer component to display one instance of the Color component for each color in the array of colors.
+
 const colors = [{
   hex: '#91A6FF',
   name: 'Cornflower Blue'
@@ -17,11 +20,14 @@ const colors = [{
   name: 'Tart Orange'
 }]
 
-export default function ColorRenderer () {
+const ColorRenderer = () => {
   return (
-    <h2>
-      Use the Color component to render each
-       item in the colors array on the page!
-    </h2>
-  )
-}
+    <>
+      {
+        colors.map(color => <Color key={ colors.hex } hex={ color.hex } name={ color.name } />)
+      }
+    </>
+  );
+};
+
+export default ColorRenderer;
